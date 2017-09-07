@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <TextView
+    android:text="Mixer 1"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:id="@+id/MixerText" 
+    />
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+      android:id="@+id/RelativeLayout1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+      <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@drawable/ic_volume_up_white"
+        android:paddingLeft="4dp"
+        android:visibility="visible"
+        android:id="@+id/speakerButton" />
+      <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@drawable/ic_volume"
+        android:paddingLeft="4dp"
+        android:visibility="invisible"
+        android:id="@+id/speakerButtonMute" />
+    </RelativeLayout>
+    <SeekBar
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingTop="10dp"
+      android:layout_weight="1"
+      android:id="@+id/MixerVolume" />
+  </LinearLayout>
+  <TextView
+    android:text="0"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:id="@+id/VolumeOutput" />
+</LinearLayout>
