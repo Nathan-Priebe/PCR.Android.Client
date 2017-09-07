@@ -6,3 +6,6 @@ Download the PCR.Client.Android project files and also a copy of the PCR.Common 
 
 ## Deployment
 Side load the apk onto the device and start the application once the installation is completed. When the app opens enter a PCR server IP address to connect you device to your server PC.
+
+## Built With
+* Xamarin
