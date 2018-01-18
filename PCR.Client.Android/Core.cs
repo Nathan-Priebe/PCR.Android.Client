@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Http;
 using ModernHttpClient;
-using PCR.Common.Models;
+using PCR.Client.Android.Models;
 
 namespace PCR.Client.Android
 {

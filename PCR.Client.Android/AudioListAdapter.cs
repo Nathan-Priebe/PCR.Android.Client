@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using PCR.Common.Models;
+using PCR.Client.Android.Models;
 
 namespace PCR.Client.Android 
 {

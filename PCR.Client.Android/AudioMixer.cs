@@ -13,7 +13,7 @@ using Android.Views;
 using Android.Widget;
 using ModernHttpClient;
 using Newtonsoft.Json;
-using PCR.Common.Models;
+using PCR.Client.Android.Models;
 
 namespace PCR.Client.Android
 {
@@ -27,9 +27,6 @@ namespace PCR.Client.Android
             SetContentView(Resource.Layout.AudioMixer);
 
             var url = Intent.GetStringExtra("IPAddress") ?? "Data not available";
-
-            //var url = "http://192.168.1.210:4222/";
-            //var url = "http://10.10.11.149:4222/";
 
             UpdateUi(url);
         }
