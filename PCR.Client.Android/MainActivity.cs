@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using ModernHttpClient;
 using Newtonsoft.Json;
+using PCR.Common;
 
 namespace PCR.Client.Android
 {
@@ -54,7 +55,7 @@ namespace PCR.Client.Android
                         throw new Exception("IP address is required and must be valid");
                     }
 
-                    var response = await Common.GetWebRequest(ipAddress, "System/Version");
+                    var response = await WebRequest.GetWebRequest(ipAddress, "System/Version");
                     var responseBody = await response.Content.ReadAsStringAsync();
                     serverVersion = JsonConvert.DeserializeObject<string>(responseBody);
 

@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using PCR.Client.Android.Models;
+using PCR.Common;
 
 namespace PCR.Client.Android 
 {
@@ -74,7 +73,7 @@ namespace PCR.Client.Android
                 var processId = (uint)image.Tag;
                 speakerButtonMute.Visibility = ViewStates.Visible;
                 speakerButton.Visibility = ViewStates.Invisible;
-                Core.MuteApp(_appUrl, processId);
+                Audio.MuteApp(_appUrl, processId);
             };
 
             speakerButtonMute.Click += (sender, e) =>
@@ -83,7 +82,7 @@ namespace PCR.Client.Android
                 var processId = (uint)image.Tag;
                 speakerButtonMute.Visibility = ViewStates.Invisible;
                 speakerButton.Visibility = ViewStates.Visible;
-                Core.MuteApp(_appUrl, processId);
+                Audio.MuteApp(_appUrl, processId);
             };
 
             seekBarMixer.ProgressChanged += (sender, e) =>
@@ -92,8 +91,14 @@ namespace PCR.Client.Android
                 var processId = (uint)mixer.Tag;
                 var setVolume = e.SeekBar.Progress;
                 volume.Text = setVolume.ToString();
+
+                var message = new AppDetails()
+                {
+                    ProcessId = processId,
+                    Volume = setVolume
+                };
                 
-                Core.UpdateAppVolume(_appUrl, setVolume, processId);
+                Audio.UpdateAppVolume<AppDetails>(_appUrl, message);
             };
 
             return view;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.Runtime;
 
-namespace PCR.Client.Android.Models
+namespace PCR.Client.Android
 {
     [Preserve(AllMembers = true)]
     public class Applications

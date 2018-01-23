@@ -1,5 +1,5 @@
 ﻿using Android.Runtime;
-namespace PCR.Client.Android.Models
+namespace PCR.Client.Android
 {
     [Preserve(AllMembers = true)]
     public class AppDetails

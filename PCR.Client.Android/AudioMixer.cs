@@ -13,7 +13,7 @@ using Android.Views;
 using Android.Widget;
 using ModernHttpClient;
 using Newtonsoft.Json;
-using PCR.Client.Android.Models;
+using PCR.Common;
 
 namespace PCR.Client.Android
 {
@@ -36,18 +36,14 @@ namespace PCR.Client.Android
             while (true)
             {
                 var appList = new List<AppDetails>();
-
                 try
                 {
-                    var response = await Common.GetWebRequest(url, "Audio/All");
-                    var responseBody = await response.Content.ReadAsStringAsync();
-                    appList = JsonConvert.DeserializeObject<List<AppDetails>>(responseBody);
+                    appList = await Audio.GetAudioStatus<AppDetails>(url);
                 }
-                catch (Exception e)
+                catch(Exception ex)
                 {
-                    Toast.MakeText(this, "Unable to retrieve audio session, check server is running and try again",
-                        ToastLength.Short).Show();
-                    Common.PostWebRequest(url, "System/UpdateLog", e.Message);
+                    Toast.MakeText(this, ex.Message, ToastLength.Short).Show();
+                    WebRequest.PostWebRequest(url, "System/UpdateLog", ex.Message);
                 }
 
                 var adapter = new AudioListAdapter(this, appList, url);
